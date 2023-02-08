@@ -11,29 +11,16 @@ import "../App.css";
 const geoUrl =
   "https://raw.githubusercontent.com/deldersveld/topojson/master/continents/oceania.json";
 
-const markers = [
-  {
-    markerOffset: -5,
-    name: "Sydney",
-    coordinates: [151.2093, -33.8688],
-  },
-  {
-    markerOffset: -5,
-    name: "Brisbane",
-    coordinates: [153.026, -27.4705],
-  },
-];
-
-export default function MapChart() {
+export default function MapChart({ fossilData, setFossilIndex }) {
   return (
     <div className="map">
       <ComposableMap
         projectionConfig={{
           rotate: [-10.0, -13.0, 0],
-          scale: 1200,
+          scale: 900,
         }}
       >
-        <ZoomableGroup center={[151.2093, -33.8688]} zoom={1}>
+        <ZoomableGroup center={[135.2093, -23.8688]} zoom={1}>
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
               geographies.map((geo) => (
@@ -41,16 +28,16 @@ export default function MapChart() {
               ))
             }
           </Geographies>
-          {markers.map(({ name, coordinates, markerOffset }) => (
+          {fossilData?.map(({ name, co_ords, label_offset }, index) => (
             <Marker
               key={name}
-              coordinates={coordinates}
-              onClick={() => console.log(name)}
+              coordinates={co_ords}
+              onClick={() => setFossilIndex(index)}
             >
               <circle r={2} fill="#F00" stroke="#fff" strokeWidth={0.5} />
               <text
                 textAnchor="middle"
-                y={markerOffset}
+                y={label_offset}
                 style={{
                   fontFamily: "system-ui",
                   fill: "#5D5A6D",

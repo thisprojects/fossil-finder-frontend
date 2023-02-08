@@ -1,12 +1,12 @@
+import { Link } from "react-router-dom";
 import "../App.css";
 
 const Navbar = () => {
   return (
     <div className="nav-bar">
-      <span>About</span>
-      <span>This</span>
-      <span>That</span>
-      <span>Whatever</span>
+      <Link to={"/"}>Home</Link>
+      <Link to={"/"}>About</Link>
+      <Link to={"/"}>Mesozoic Australia</Link>
     </div>
   );
 };
