@@ -6,10 +6,11 @@ import {
   ZoomableGroup,
   Marker,
 } from "react-simple-maps";
+import geoUrl from "../Australia";
 import "../App.css";
 
-const geoUrl =
-  "https://raw.githubusercontent.com/deldersveld/topojson/master/continents/oceania.json";
+// const geoUrl =
+//   "https://raw.githubusercontent.com/deldersveld/topojson/master/continents/oceania.json";
 
 export default function MapChart({
   fossilData,
