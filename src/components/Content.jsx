@@ -22,6 +22,14 @@ const Content = ({ selectedFossilRecord }) => {
         <>
           <h1>Fossil Finder!</h1>
           <p>Scarlett has to put some instructions here</p>
+          <p>
+            Close this drawer by clicking on the transparent grey background
+            (over the map)
+          </p>
+          <p>
+            We could also put in a litte X in the top right corner of the
+            drawer, what do you think?
+          </p>
         </>
       )}
     </div>

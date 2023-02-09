@@ -11,16 +11,20 @@ import "../App.css";
 const geoUrl =
   "https://raw.githubusercontent.com/deldersveld/topojson/master/continents/oceania.json";
 
-export default function MapChart({ fossilData, setFossilIndex }) {
+export default function MapChart({
+  fossilData,
+  setFossilIndex,
+  setDrawerState,
+}) {
   return (
     <div className="map">
       <ComposableMap
         projectionConfig={{
           rotate: [-10.0, -13.0, 0],
-          scale: 900,
+          scale: 600,
         }}
       >
-        <ZoomableGroup center={[135.2093, -23.8688]} zoom={1}>
+        <ZoomableGroup center={[135.2093, -35.8688]} zoom={1}>
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
               geographies.map((geo) => (
@@ -32,7 +36,10 @@ export default function MapChart({ fossilData, setFossilIndex }) {
             <Marker
               key={name}
               coordinates={co_ords}
-              onClick={() => setFossilIndex(index)}
+              onClick={() => {
+                setFossilIndex(index);
+                setDrawerState(true);
+              }}
             >
               <circle r={2} fill="#F00" stroke="#fff" strokeWidth={0.5} />
               <text
